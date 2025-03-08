@@ -1,0 +1,226 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000f39;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Đảm bảo hiệu ứng tràn viền hoạt động tốt */
+}
+
+.text-happy-womens-day {
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    font-size: 2.5em;
+    white-space: nowrap;
+    text-align: right;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-from-tek4vn {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    font-size: 1.3em;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Heart Outline lớn */
+.heart-wrapper {
+    position: absolute;
+    width: 380px;
+    height: 330px;
+}
+
+.heart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 3px dotted #ff6f61;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+    animation: heart-pulse 3s infinite alternate; /* Thêm animation pulse */
+}
+
+@keyframes heart-pulse {
+    0% { transform: rotate(-45deg) scale(1); opacity: 1; }
+    100% { transform: rotate(-45deg) scale(1.05); opacity: 0.8; }
+}
+
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.heart::before {
+    bottom: 50%;
+    right: 0;
+    box-shadow: -190px 0 0 3px #ff6f61;
+}
+
+.heart::after {
+    top: 50%;
+    left: 0;
+    box-shadow: 190px 0 0 3px #ff6f61;
+}
+
+
+/* Hoa hồng và mái vòm */
+.rose-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dome {
+    width: 140px;
+    height: 170px;
+    border: 2px solid #fff;
+    border-bottom: none;
+    border-radius: 50% 50% 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.rose {
+    position: relative;
+    width: 70px;
+    height: 90px;
+    margin-bottom: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.petal {
+    position: absolute;
+    background-color: #ff6f61;
+    border-radius: 50% 50% 0 0;
+    animation: rose-bloom 5s infinite alternate ease-in-out; /* Thêm animation cho cánh hoa */
+}
+
+.petal-1 { width: 30px; height: 40px; top: 5px; left: 50%; transform: translateX(-50%) rotate(-10deg); }
+.petal-2 { width: 35px; height: 45px; top: 10px; left: 50%; transform: translateX(-50%) rotate(15deg); animation-delay: 0.2s; }
+.petal-3 { width: 40px; height: 50px; top: 15px; left: 50%; transform: translateX(-50%) rotate(-20deg); animation-delay: 0.4s; }
+.petal-4 { width: 45px; height: 55px; top: 20px; left: 50%; transform: translateX(-50%) rotate(25deg); animation-delay: 0.6s; }
+.petal-5 { width: 50px; height: 60px; top: 25px; left: 50%; transform: translateX(-50%) rotate(-30deg); animation-delay: 0.8s; }
+.petal-6 { width: 55px; height: 65px; top: 30px; left: 50%; transform: translateX(-50%) rotate(35deg); animation-delay: 1s; }
+
+
+@keyframes rose-bloom {
+    0% { opacity: 0.6; transform: translateY(10px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+.core {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #96031a; /* Màu đậm hơn cho nhụy hoa */
+    border-radius: 50%;
+    top: 45px; /* Định vị nhụy hoa */
+    z-index: 1; /* Đảm bảo nhụy hoa ở trên các cánh hoa */
+}
+
+
+.stem {
+    width: 6px;
+    height: 80px;
+    background-color: #74c69d;
+    margin-top: -5px;
+}
+
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background-color: #74c69d;
+    border-radius: 0 50% 50% 0 / 0 15% 15% 0; /* Hình dạng lá */
+}
+
+.leaf-left {
+    left: -15px;
+    top: 60px;
+    transform: rotate(-30deg);
+}
+
+.leaf-right {
+    right: -15px;
+    top: 60px;
+    transform: rotate(30deg);
+}
+
+
+/* Các trái tim nhỏ xung quanh */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Cho phép click xuyên qua container trái tim */
+}
+
+.small-heart {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: #ff6f61;
+    -webkit-mask-image: url('heart-icon.svg');
+    mask-image: url('heart-icon.svg');
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #ff6f61;
+    animation: float-heart 8s infinite linear; /* Animation trái tim bay */
+    opacity: 0; /* Ban đầu ẩn đi */
+}
+
+@keyframes float-heart {
+    0% { transform: translateY(120%) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; } /* Hiện dần */
+    90% { opacity: 1; } /* Duy trì hiện */
+    100% { transform: translateY(-20%) rotate(360deg); opacity: 0; } /* Ẩn dần và bay lên */
+}
+
+
+/* Vị trí và delay các trái tim nhỏ */
+.heart-1 { top: 60%; left: 15%; animation-delay: 1s; animation-duration: 7s;}
+.heart-2 { top: 70%; right: 10%; animation-delay: 2s; animation-duration: 9s;}
+.heart-3 { bottom: 10%; right: 20%; animation-delay: 3s; animation-duration: 6s;}
+.heart-4 { bottom: 30%; left: 10%; animation-delay: 4s; animation-duration: 8s;}
+.heart-5 { top: 20%; left: 35%; animation-delay: 5s; animation-duration: 10s;}
+.heart-6 { top: 40%; right: 5%; animation-delay: 6s; animation-duration: 7s;}
+.heart-7 { bottom: 20%; right: 30%; animation-delay: 7s; animation-duration: 9s;}
+.heart-8 { bottom: 40%; left: 25%; animation-delay: 8s; animation-duration: 6s;}
+.heart-9 { top: 5%; left: 5%; animation-delay: 9s; animation-duration: 8s;}
