@@ -18,21 +18,20 @@ $rose4 :#c9204b;
 }
 
 @mixin keyframes($animationName) {
-  @-webkit-keyframes #{"$animationName"} {
-    @content;
+    @-webkit-keyframes #{$animationName} {
+      @content;
+    }
+    @-moz-keyframes #{$animationName} {
+      @content;
+    }
+    @-ms-keyframes #{$animationName} {
+      @content;
+    }
+    @keyframes #{$animationName} { // Thêm khai báo chuẩn
+      @content;
+    }
   }
-  @-moz-keyframes #{$animationName} {
-    @content;
-  }
-
-  @-ms-keyframes #{$animationName} {
-    @content;
-  }
-
-  @keyframes #{$animationName} {
-    @content;
-  }
-}
+  
 
 body {
 	height: 100%;
