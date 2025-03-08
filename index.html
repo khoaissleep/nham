@@ -3,99 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 8/3 - GenZ Style</title>
+    <title>Hộp Quà 8/3</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            margin: 0;
+        }
+        .container {
+            position: relative;
             text-align: center;
-            overflow: hidden;
-        }
-        h1 {
-            color: #fff;
-            font-size: 3em;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-            margin-top: 50px;
-        }
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            clip-path: polygon(50% 0%, 100% 30%, 75% 100%, 50% 80%, 25% 100%, 0% 30%);
-            animation: float 5s linear infinite;
-        }
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
         }
         .gift-box {
             width: 150px;
             height: 150px;
             background: url('https://cdn-icons-png.flaticon.com/512/2534/2534416.png') no-repeat center/cover;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gift-box:hover {
+            transform: scale(1.1);
         }
         .gift-text {
+            margin-top: 10px;
             font-size: 1.5em;
-            color: white;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .arrow {
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translateX(-50%) rotate(90deg);
-            font-size: 2em;
             color: white;
         }
         .hidden-message {
             display: none;
-            text-align: center;
             margin-top: 20px;
         }
         .hidden-message img {
             width: 200px;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Chúc Mừng Ngày Quốc Tế Phụ Nữ 8/3 💖</h1>
-    <div class="gift-box" onclick="showMessage()"></div>
-    <div class="gift-text">Hãy bấm vào hộp này đi :3</div>
-    <div class="arrow">⬇️</div>
-    <div class="hidden-message" id="message">
-        <h2>Chúc ngày 8/3 vui vẻ! 🎉🌸</h2>
-        <img src="https://cdn.pixabay.com/photo/2017/01/31/17/44/rose-2023029_960_720.png" alt="Bó hoa đẹp">
+    <div class="container">
+        <div class="gift-box" onclick="showMessage()"></div>
+        <div class="gift-text">Hãy bấm vào hộp này đi :3</div>
+        <div class="hidden-message" id="message">
+            <h2>Chúc ngày 8/3 vui vẻ! 🎉🌸</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/2534/2534416.png" alt="Hộp quà mở ra">
+        </div>
     </div>
     <script>
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-            document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-        setInterval(createHeart, 200);
-
         function showMessage() {
             document.getElementById("message").style.display = "block";
         }
